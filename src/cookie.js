@@ -22,6 +22,9 @@ class Cookie {
 
 // parse cookie string to return value at {key}
   static getCookie(key) {
+    if (typeof document === 'undefined') {
+      return ;
+    }
     if (!document || document.cookie === undefined) {
       return null;
     }
@@ -37,6 +40,9 @@ class Cookie {
 
   // set cookie using {key, value}
   static setCookie(key, value) {
+    if (typeof document === 'undefined') {
+      return ;
+    }
     if (!document || !document.cookie === undefined || typeof value !== 'string') {
       return;
     }
